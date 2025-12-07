@@ -1,0 +1,525 @@
+/* ========== RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary-color: #0078ff; /* Kurumsal Mavi Vurgu */
+    --secondary-color: #2c2c2c; /* Koyu Metin */
+    --background-light: #fcfcfc; /* Hafif Arka Plan */
+    --background-gray: #f4f7fb; /* Hafif Gri Arka Plan */
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background: var(--background-light);
+    color: var(--secondary-color);
+    line-height: 1.7; /* Okunabilirlik artırıldı */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* ========== NAVBAR (Şık ve Yapışkan) ========== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(255, 255, 255, 0.95); /* Yarı şeffaf beyaz */
+    color: var(--secondary-color);
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid #eeeeee;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--primary-color);
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar .menu a {
+    color: #444;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar .menu a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* ========== HERO SECTION (İlk İzlenim) ========== */
+
+.hero {
+    padding: 160px 20px;
+    text-align: center;
+    background: linear-gradient(120deg, #ffffff, #f0f0f0);
+    color: var(--secondary-color);
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.hero span {
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+/* ========== SECTIONS ========== */
+
+.section {
+    padding: 70px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section h2 {
+    margin-bottom: 30px;
+    border-left: 6px solid var(--primary-color);
+    padding-left: 15px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* About Section */
+#about p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+#about h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #555;
+}
+
+/* List Styling (Certificates/Internships/Languages) */
+.list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.list li {
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    font-size: 16px;
+}
+
+.list li:hover {
+    border-left: 5px solid #0056b3;
+    transform: translateX(3px);
+}
+
+/* ========== SKILLS GRID ========== */
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap; /* Izgara yerine esnek kutular */
+    gap: 15px;
+}
+
+.skill {
+    background: var(--background-gray); 
+    padding: 10px 20px;
+    border-radius: 50px; /* Hap şeklinde */
+    text-align: center;
+    border: none;
+    box-shadow: none;
+    transition: 0.3s;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.skill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 5px 10px rgba(0, 120, 255, 0.2);
+    background: #eef5ff;
+}
+
+/* ========== PROJECT CARDS (Görsel Odaklı) ========== */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-item {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: var(--shadow-light);
+    transition: 0.3s;
+    overflow: hidden; /* Resmin dışarı taşmasını engeller */
+}
+
+.project-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 18px rgba(0, 120, 255, 0.1);
+}
+
+.project-item img {
+    width: 100%;
+    height: 180px; /* Sabit yükseklik */
+    object-fit: cover;
+    display: block;
+}
+
+.project-content {
+    padding: 22px;
+}
+
+.project-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+}
+
+.project-item p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.project-item a {
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* ========== ADD PROJECT FORM (Test) ========== */
+
+.project-add {
+    margin-top: 50px;
+    padding: 30px;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    background: var(--background-gray);
+}
+
+.project-add h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.project-add input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.project-add button {
+    padding: 12px 25px;
+    margin-top: 12px;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.project-add button:hover {
+    background: #0056b3;
+}
+
+/* ========== FOOTER ========== */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--secondary-color);
+    color: white;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE (Mobil Uyumluluk) ========== */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    /* Menü geçişi için active class'ı */
+    .navbar .menu {
+        display: none;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        width: 100%;
+        padding: 15px 0;
+        flex-direction: column;
+        border-top: 1px solid #eee;
+    }
+    
+    .navbar .menu.active {
+        display: flex; /* JS ile açılır */
+    }
+
+    .navbar .menu a {
+        padding: 10px 40px;
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+        display: block;
+        color: var(--secondary-color);
+    }
+    
+    .navbar .menu a:hover {
+        background: #f4f4f4;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .section h2 {
+        font-size: 26px;
+    }
+    
+    .section {
+        padding: 50px 15px;
+    }
+}
+
+/* ========== HERO SECTION (Video Arka Planı İçin Güncelleme) ========== */
+
+.hero {
+    position: relative; /* Video ve içeriğin konumlanması için */
+    overflow: hidden; /* Video taşmasını engeller */
+    padding: 0; /* İç dolguyu kaldırıp içeriği .hero-content'e taşıyacağız */
+    height: 100vh; /* Tam Ekran Yüksekliği */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #000; /* Video yüklenmezse siyah arka plan */
+}
+
+/* Video Stili: Tam ekran kaplama ve altına konumlandırma */
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1; /* Metnin arkasında kalması için */
+    transform: translate(-50%, -50%);
+    opacity: 0.6; /* Video kontrastını azaltarak metni öne çıkarır */
+}
+
+/* Metin İçin Kaplama (Overlay): Yazının okunurluğunu artırır */
+.hero-content {
+    position: relative;
+    z-index: 10; /* Videonun üzerinde olması için */
+    color: white; /* Metin rengi videonun üzerinde okunması için beyaz/açık renk olmalı */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4); /* Hafif gölge ekleyerek okunurluğu artırma */
+    border-radius: 10px;
+}
+
+/* Metin Stilleri */
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.hero-content span {
+    color: var(--primary-color); /* Mavi vurguyu koru */
+}
+.hero-content p {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+
+/* ========== YENİ: Metin Animasyonu (Başlangıç Durumu) ========== */
+
+/* Sayfa yüklendiğinde metin başlangıçta görünmez ve yukarıda/aşağıda konumlanır */
+#animated-title, #animated-subtitle {
+    opacity: 0;
+    transition: all 1.5s ease-out; /* Animasyon süresi ve yumuşaklığı */
+}
+
+/* Başlık: Hafif yukarıdan gelsin */
+#animated-title {
+    transform: translateY(-20px);
+}
+
+/* Alt Başlık: Hafif aşağıdan gelsin */
+#animated-subtitle {
+    transform: translateY(20px);
+    transition-delay: 0.5s; /* Başlık geldikten yarım saniye sonra başlasın */
+}
+
+/* Mobil görünümde video kaplamasını daha yoğun yapabiliriz */
+@media (max-width: 768px) {
+    #hero-video {
+        opacity: 0.4;
+    }
+    .hero-content {
+        background: rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* ========== YENİ CSS: Profil Avatarı ve Modal ========== */
+
+/* 1. Navbar'daki Avatar Stili */
+.logo {
+    display: flex; /* Resim ve metni yan yana getirir */
+    align-items: center;
+    gap: 10px; /* Resim ve metin arasına boşluk */
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+#profile-avatar {
+    width: 40px; /* Küçük boyut */
+    height: 40px;
+    border-radius: 50%; /* Yuvarlak şekil */
+    object-fit: cover; /* Resmi sığdır */
+    cursor: pointer; /* Tıklanabilir olduğunu belli eden imleç */
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+#profile-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* 2. Modal (Büyütülen Resim Penceresi) */
+.modal {
+    display: none; /* Başlangıçta gizli */
+    position: fixed; 
+    z-index: 2000; /* En üste çıksın */
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.9); /* Yarı şeffaf siyah arka plan */
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal İçindeki Resim */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation-name: zoom;
+    animation-duration: 0.6s
+}
+
+/* Kapatma Butonu */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Animasyonlar */
+@keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+/* Eğitim Bilgisi Stili */
+.education-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: #eef5ff; /* Hafif mavi arka plan */
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.education-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+}
+
+.education-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.education-info li {
+    line-height: 1.4;
+    color: #444;
+}
+
+.project-add {
+    display: none;
+}

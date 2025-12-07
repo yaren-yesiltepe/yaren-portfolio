@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yaren Yesiltepe | Software Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <nav class="navbar">
+        <div class="logo">
+            <img src="yarencvphoto.jpeg" alt="Yaren Yesiltepe" id="profile-avatar">
+            Yaren Yesiltepe
+        </div>
+        </nav>
+        <ul class="menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#internships">Internships</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+    <header class="hero">
+        
+        <video autoplay muted loop id="hero-video">
+            <source src="120172-720504774_small.mp4" type="video/mp4"> 
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+
+        <div class="hero-content">
+            <h1 id="animated-title">Hello, I’m <span>Yaren Yesiltepe</span></h1>
+            <p id="animated-subtitle">Software Engineering Student • Problem Solver • Developer</p>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I am a 4th-year Software Engineering student. 
+                    I have an analytical mindset, a passion for problem-solving, and an eagerness to learn. 
+                    I am open to innovation, adept at teamwork, and dedicated to self-improvement.
+                    My goal is to strengthen my technical competencies and build a solid career foundation.
+                </p>
+
+                <div class="education-info">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>
+                            Istanul Nisantasi University – Software Engineeering (%100 English) , Senior
+                            <br>
+                            2022-2026
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Python</div>
+            <div class="skill">MySql</div>
+            <div class="skill">Git & GitHub</div>
+            <div class="skill">System Design</div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>My Projects</h2>
+        <div id="project-list" class="project-grid">
+            </div>
+
+        <div class="project-add">
+            <h3>Add a New Project</h3>
+            <input id="project-title" type="text" placeholder="Project Name">
+            <input id="project-image-url" type="text" placeholder="Image URL (e.g., from Imgur or GitHub)">
+            <input id="project-link" type="text" placeholder="GitHub Link">
+            <button onclick="addProject()">Add Project</button>
+        </div>
+    </section>
+    
+    <section id="internships" class="section">
+        <h2>Internship Experiences</h2>
+        <ul class="list">
+            <li>Nobel Navigators – Remote Intern (02.2025-06.2025)</li>
+            <li>We Studio Gelişim Programı – Intern (10.2025-12.2025)</li>
+        </ul>
+    </section>
+
+    <section id="languages" class="section"> 
+        <h2>Languages I Speak</h2>
+        <ul class="list">
+            <li>English – B2</li>
+            <li>German – A2</li>
+            <li>Spanish – A1</li>
+            <li>Arabic – A1</li>
+            <li>Turkish – Native</li>
+        </ul>
+    </section>
+
+    <section id="certificates" class="section">
+        <h2>Certificates</h2>
+        <ul class="list">
+            <li>Certificate of Internship (Fundamentals Program) – Nobel Navigators</li>
+            <li>Womentum Enerjisa – Enerjisa </li>
+            <li>Veri Bilimi İçin İstatistik – BTK Akademi</li>
+            <li>Artificial Intelligence (AI) for Social Impact – ADBInstitute</li>
+            <li>Data Science and Analytics – HpLife</li>
+            <li>Python ile Veriyi Keşfet, Analiz Et , Karar Ver – Başakşehir Belediyesi</li>
+            <li>Commonwealth bank - Introduction to data science Job Simulation – Forage</li>
+            <li>Active Youth in Society Project – ErasmusPlus</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:yarenyesiltepe1@gmail.com">yarenyesiltepe1@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/yaren-yesiltepe" target="_blank">https://github.com/yaren-yesiltepe</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/yaren-yesiltepe-0599b9286" target="_blank">www.linkedin.com/in/yaren-yesiltepe-0599b9286</a></p>
+    </section>
+
+    <div id="image-modal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    <footer>
+        © 2025 All Rights Reserved — Yaren Yesiltepe
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

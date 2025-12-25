@@ -113,19 +113,59 @@
         </ul>
     </section>
 
-    <section id="certificates" class="section">
-        <h2>Certificates</h2>
-        <ul class="list">
-            <li>Certificate of Internship (Fundamentals Program) – Nobel Navigators</li>
-            <li>Womentum Enerjisa – Enerjisa </li>
-            <li>Veri Bilimi İçin İstatistik – BTK Akademi</li>
-            <li>Artificial Intelligence (AI) for Social Impact – ADBInstitute</li>
-            <li>Data Science and Analytics – HpLife</li>
-            <li>Python ile Veriyi Keşfet, Analiz Et , Karar Ver – Başakşehir Belediyesi</li>
-            <li>Commonwealth bank - Introduction to data science Job Simulation – Forage</li>
-            <li>Active Youth in Society Project – ErasmusPlus</li>
-        </ul>
-    </section>
+  <section id="certificates" class="section">
+    <h2>Certificates</h2>
+    <ul class="list" id="certificate-list">
+        <li class="certificate-item" data-image="certificates/nobel sertifika.png">
+            Certificate of Internship (Fundamentals Program) – Nobel Navigators
+            <span class="certificate-preview">
+                </span>
+        </li>
+        <li class="certificate-item" data-image="certificates/womentum sertifika.png">
+            Womentum Enerjisa – Enerjisa 
+            <span class="certificate-preview"></span>
+        </li>
+        <li class="certificate-item" data-image="certificates/veri bilimi sertifika.png">
+            Veri Bilimi İçin İstatistik – BTK Akademi
+            <span class="certificate-preview"></span>
+        </li>
+        <li class="certificate-item" data-image="URL_4_AI_SOCIAL_IMPACT">
+            Artificial Intelligence (AI) for Social Impact – ADBInstitute
+            <span class="certificate-preview"></span>
+        </li>
+        <li class="certificate-item" data-image="certificates/hplife data science sertifika.png">
+            Data Science and Analytics – HpLife
+            <span class="certificate-preview"></span>
+        </li>
+        <li class="certificate-item" data-image="URL_6_PYTHON_BASAKSEHIR">
+            Python ile Veriyi Keşfet, Analiz Et , Karar Ver – Başakşehir Belediyesi
+            <span class="certificate-preview"></span>
+        </li>
+        <li class="certificate-item" data-image="certificates/commonwealth.png">
+            Commonwealth bank - Introduction to data science Job Simulation – Forage
+            <span class="certificate-preview"></span>
+        </li>
+        <li class="certificate-item" data-image="certificates/erasmus.jpeg">
+            Active Youth in Society Project – ErasmusPlus
+            <span class="certificate-preview"></span>
+        </li>
+        <li class="certificate-item" data-image="certificates/certificatepresentingData.png">
+             Presenting Data – HpLife 
+            <span class="certificate-preview"></span>
+        </li>
+        <li class="certificate-item" data-image="certificates/certificateJavaScriptBasis.png">
+             JavaScript Basis – Workintech 
+            <span class="certificate-preview"></span>
+        </li>
+
+        <li class="certificate-item" data-image="certificates/WeStudioCertificate.png">
+             We Work Experience Studio – Türkiye Finans 
+            <span class="certificate-preview"></span>
+        </li>
+    </ul>
+</section>
+
+
 
     <section id="contact" class="section">
         <h2>Contact</h2>
@@ -149,5 +189,18 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <img id="modal-img" src="" alt="Project Image">
+        <div class="modal-text">
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+            <a id="modal-link" href="#" target="_blank" class="btn">View on GitHub</a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

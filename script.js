@@ -26,18 +26,13 @@ toggle.addEventListener("click", () => {
 
 // Proje Verisi (Kendi projelerinizi buraya ekleyin)
 let projects = [
-    { 
-        title: "E-Commerce Platform Backend", 
-        link: "https://github.com/yaren-yesiltepe/ecommerce-backend", 
-        description: "Developed a scalable RESTful API using Python/Django, focusing on user authentication and order processing.",
-        imageUrl: "https://via.placeholder.com/400x200/0078ff/FFFFFF?text=Backend+API" // Yer tutucu resim
-    },
-    { 
-        title: "Data Visualization Dashboard", 
-        link: "https://github.com/yaren-yesiltepe/dashboard-project", 
-        description: "Interactive dashboard built with JavaScript and D3.js to visualize large datasets for business intelligence.",
-        imageUrl: "https://via.placeholder.com/400x200/00c6ff/FFFFFF?text=D3.js+Dashboard" // Yer tutucu resim
-    }
+    {
+    title: "Smart Task Manager",
+    link: "https://github.com/yaren-yesiltepe/Smart-Task-Manager",
+    description: "A feature-rich To-Do List app built with HTML, CSS, and JavaScript. Users can add, complete, and delete tasks.",
+    imageUrl: "projects/proje görseli1.png"
+}
+
 ];
 
 function displayProjects() {
@@ -86,6 +81,51 @@ function addProject() {
     document.getElementById("project-link").value = "";
 }
 
+
+function displayProjects() {
+    const container = document.getElementById("project-list");
+    container.innerHTML = ""; 
+
+    projects.forEach((p, index) => {
+        const projectHTML = `
+            <div class="project-item" onclick="openModal(${index})" style="cursor:pointer;">
+                <img src="${p.imageUrl}" alt="${p.title}">
+                <div class="project-content">
+                    <h4>${p.title}</h4>
+                    <p>Click to see details →</p>
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', projectHTML); 
+    });
+}
+
+// Modalı Açma Fonksiyonu
+function openModal(index) {
+    const p = projects[index];
+    document.getElementById("modal-title").innerText = p.title;
+    document.getElementById("modal-desc").innerText = p.description || 'No description provided.';
+    document.getElementById("modal-img").src = p.imageUrl;
+    document.getElementById("modal-link").href = p.link;
+    
+    document.getElementById("project-modal").style.display = "block";
+}
+
+// Modalı Kapatma Fonksiyonu
+function closeModal() {
+    document.getElementById("project-modal").style.display = "none";
+}
+
+// Dışarı tıklandığında kapanması için
+window.onclick = function(event) {
+    let modal = document.getElementById("project-modal");
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+
+
 // ========== YENİ: Profil Fotoğrafı Modal İşlevselliği ==========
 
 const modal = document.getElementById("image-modal");
@@ -114,3 +154,70 @@ if (img && modal && modalImg) {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const certificateItems = document.querySelectorAll(".certificate-item");
+
+    // Sertifika hover önizlemesi ve modal açma
+    certificateItems.forEach(item => {
+        const imageUrl = item.getAttribute('data-image');
+        const previewSpan = item.querySelector('.certificate-preview');
+        
+        if (imageUrl && previewSpan) {
+            // Hover önizleme
+            previewSpan.innerHTML = `<img src="${imageUrl}" alt="${item.textContent.trim()} Certificate" />`;
+        }
+
+        // Tıklayınca tam ekran modal aç
+        item.addEventListener('click', () => {
+            openCertificateModal(imageUrl);
+        });
+    });
+
+    // Sertifika modal elementi oluştur
+    const certificateModal = document.createElement('div');
+    certificateModal.classList.add('certificate-modal');
+    certificateModal.innerHTML = `
+        <span class="close-btn">&times;</span>
+        <img src="" alt="Certificate">
+    `;
+    document.body.appendChild(certificateModal);
+
+    const modalImg = certificateModal.querySelector('img');
+    const closeBtn = certificateModal.querySelector('.close-btn');
+
+    function openCertificateModal(src) {
+        certificateModal.style.display = 'flex';
+        modalImg.src = src;
+    }
+
+    closeBtn.onclick = () => certificateModal.style.display = 'none';
+    certificateModal.onclick = (e) => {
+        if (e.target === certificateModal) certificateModal.style.display = 'none';
+    };
+
+    // Profil avatar modalı (mevcut kod)
+    const profileModal = document.getElementById("image-modal");
+    const profileImg = document.getElementById("profile-avatar");
+    const profileModalImg = document.getElementById("img01");
+
+    if (profileImg && profileModal && profileModalImg) {
+        profileImg.onclick = function() {
+            profileModal.style.display = "block";
+            profileModalImg.src = this.src; 
+        };
+
+        const span = document.getElementsByClassName("close-btn")[0];
+        if (span) {
+            span.onclick = function() { 
+                profileModal.style.display = "none";
+            };
+        }
+
+        window.onclick = function(event) {
+            if (event.target == profileModal) {
+                profileModal.style.display = "none";
+            }
+        };
+    }
+});

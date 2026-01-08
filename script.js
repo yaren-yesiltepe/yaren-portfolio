@@ -31,6 +31,13 @@ let projects = [
     link: "https://github.com/yaren-yesiltepe/Smart-Task-Manager",
     description: "A feature-rich To-Do List app built with HTML, CSS, and JavaScript. Users can add, complete, and delete tasks.",
     imageUrl: "projects/proje görseli1.png"
+},
+
+    {
+    title: "Mini E-Commerce Product Catolog",
+    link: "https://github.com/yaren-yesiltepe/mini-ecommerce-catalog.git",
+    description: "An interactive product catalog built with HTML, CSS, and JavaScript featuring filtering, modals, and animated 'Add to Cart' buttons.",
+    imageUrl: "projects/ministoreImg.png"
 }
 
 ];

@@ -1,58 +1,82 @@
-// Hero Section Metin Animasyonu
+// ========== GLOBAL DEĞİŞKENLER VE AYARLAR ==========
+let currentProjectImages = [];
+let currentImageIndex = 0;
+
+let projects = [
+    {
+        title: "Smart Task Manager",
+        link: "https://github.com/yaren-yesiltepe/Smart-Task-Manager",
+        description: "A feature-rich To-Do List app built with HTML, CSS, and JavaScript. Users can add, complete, and delete tasks.",
+        imageUrls: ["projects/proje görseli1.png"]
+    },
+    {
+        title: "Mini E-Commerce Product Catalog",
+        link: "https://github.com/yaren-yesiltepe/mini-ecommerce-catalog.git",
+        description: "An interactive product catalog built with HTML, CSS, and JavaScript featuring filtering, modals, and animated 'Add to Cart' buttons.",
+        imageUrls: ["projects/ministoreImg.png"]
+    },
+    {
+        title: "AI Career Advisor",
+        link: "https://github.com/yaren-yesiltepe/ai-career-advisor.git",
+        description: "AI Career Advisor – A web-based, AI-inspired career recommendation system that analyzes users’ interests and skills.",
+        imageUrls: [
+            "projects/ai-career-advisor1.png",
+            "projects/ai-career-advisor2.png"
+        ]
+    }
+];
+
+// ========== DOM YÜKLENDİĞİNDE ÇALIŞACAKLAR ==========
 document.addEventListener('DOMContentLoaded', () => {
-    // DOM yüklendiğinde
+    // 1. Hero Animasyonu
     const title = document.getElementById('animated-title');
     const subtitle = document.getElementById('animated-subtitle');
-    
-    // Animasyonu tetikleyecek class'ı oluşturuyoruz
     if (title && subtitle) {
         setTimeout(() => {
             title.style.opacity = '1';
             title.style.transform = 'translateY(0)';
-            
             subtitle.style.opacity = '1';
             subtitle.style.transform = 'translateY(0)';
-        }, 100); // Küçük bir gecikme tarayıcıların CSS'i tanıması için iyidir
+        }, 100);
     }
+
+    // 2. Projeleri Listele
+    displayProjects();
+
+    // 3. Sertifika İşlemleri (Hover ve Tıklama)
+    setupCertificates();
+
+    // 4. Profil Fotoğrafı Büyütme
+    setupProfileAvatar();
 });
 
-// Mobile Menu (Class Toggle Kullanımı)
+// ========== MOBİL MENÜ ==========
 const toggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".menu");
+if (toggle) {
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
+}
 
-toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-});
-
-// Proje Verisi (Kendi projelerinizi buraya ekleyin)
-let projects = [
-    { 
-        title: "E-Commerce Platform Backend", 
-        link: "https://github.com/yaren-yesiltepe/ecommerce-backend", 
-        description: "Developed a scalable RESTful API using Python/Django, focusing on user authentication and order processing.",
-        imageUrl: "https://via.placeholder.com/400x200/0078ff/FFFFFF?text=Backend+API" // Yer tutucu resim
-    },
-    { 
-        title: "Data Visualization Dashboard", 
-        link: "https://github.com/yaren-yesiltepe/dashboard-project", 
-        description: "Interactive dashboard built with JavaScript and D3.js to visualize large datasets for business intelligence.",
-        imageUrl: "https://via.placeholder.com/400x200/00c6ff/FFFFFF?text=D3.js+Dashboard" // Yer tutucu resim
-    }
-];
-
+// ========== PROJE FONKSİYONLARI ==========
 function displayProjects() {
     const container = document.getElementById("project-list");
+    if (!container) return;
     container.innerHTML = ""; 
 
-    projects.forEach(p => {
+    projects.forEach((p, index) => {
+        // Kapak resmi olarak ilk resmi seçiyoruz
+        const coverImg = (p.imageUrls && p.imageUrls.length > 0) ? p.imageUrls[0] : (p.imageUrl || "");
+        
         const projectHTML = `
-            <div class="project-item">
-                <img src="${p.imageUrl}" alt="${p.title} Screenshot" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x180/808080/FFFFFF?text=No+Image'">
-                
+            <div class="project-item" onclick="openModal(${index})" style="cursor:pointer;">
+                <div class="project-images">
+                    <img src="${coverImg}" alt="${p.title}" class="project-img">
+                </div>
                 <div class="project-content">
                     <h4>${p.title}</h4>
-                    <p>${p.description || 'No description provided.'}</p>
-                    <a href="${p.link}" target="_blank">View Project / GitHub →</a>
+                    <p>Click to see details →</p>
                 </div>
             </div>
         `;
@@ -60,57 +84,120 @@ function displayProjects() {
     });
 }
 
-displayProjects();
+// ========== MODAL (PROJE DETAY) FONKSİYONLARI ==========
+function openModal(index) {
+    const p = projects[index];
+    const modal = document.getElementById("project-modal");
+    const modalImg = document.getElementById("modal-img");
+    const controls = document.getElementById("modal-controls");
 
-function addProject() {
-    const title = document.getElementById("project-title").value.trim();
-    const link = document.getElementById("project-link").value.trim();
-    const imageUrl = document.getElementById("project-image-url").value.trim(); 
+    document.getElementById("modal-title").innerText = p.title;
+    document.getElementById("modal-desc").innerText = p.description || 'No description provided.';
+    document.getElementById("modal-link").href = p.link;
 
-    if (title === "" || link === "" || imageUrl === "") {
-        alert("Please fill in the Project Name, Image URL, and GitHub Link!");
-        return;
-    }
+    currentProjectImages = p.imageUrls || [p.imageUrl];
+    currentImageIndex = 0;
+    modalImg.src = currentProjectImages[currentImageIndex];
 
-    // Açıklama alanı prompt ile soruluyor
-    const description = prompt("Enter a short description for this project:");
-    
-    // Yeni projeyi diziye ekle
-    projects.push({ title, link, description, imageUrl }); 
-    
-    displayProjects();
-
-    // Formu temizle
-    document.getElementById("project-title").value = "";
-    document.getElementById("project-image-url").value = "";
-    document.getElementById("project-link").value = "";
+    controls.style.display = (currentProjectImages.length > 1) ? "flex" : "none";
+    modal.style.display = "block";
 }
 
-// ========== YENİ: Profil Fotoğrafı Modal İşlevselliği ==========
+function changeSlide(direction) {
+    currentImageIndex = (currentImageIndex + direction + currentProjectImages.length) % currentProjectImages.length;
+    document.getElementById("modal-img").src = currentProjectImages[currentImageIndex];
+}
 
-const modal = document.getElementById("image-modal");
-const img = document.getElementById("profile-avatar");
-const modalImg = document.getElementById("img01");
+function closeModal() {
+    document.getElementById("project-modal").style.display = "none";
+}
 
-if (img && modal && modalImg) {
-    // Resme tıklandığında modalı aç
-    img.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src; // Tıklanan resmin src'sini moda'a aktar
+// ========== SERTİFİKA VE PROFİL AYARLARI ==========
+function setupCertificates() {
+    const certificateItems = document.querySelectorAll(".certificate-item");
+    const imageModal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("img01");
+
+    // Tek bir önizleme resmi oluşturup body'ye ekliyoruz (Sola sabit olan)
+    let globalPreview = document.querySelector('.hover-preview-img');
+    if (!globalPreview) {
+        globalPreview = document.createElement('img');
+        globalPreview.className = 'hover-preview-img';
+        document.body.appendChild(globalPreview);
     }
 
-    // Kapatma butonuna tıklandığında modalı kapat
-    const span = document.getElementsByClassName("close-btn")[0];
-    if (span) {
-        span.onclick = function() { 
-            modal.style.display = "none";
-        }
-    }
+    certificateItems.forEach(item => {
+        const imageUrl = item.getAttribute('data-image');
+        
+        // Üzerine gelince
+        item.addEventListener('mouseenter', () => {
+            if (imageUrl) {
+                globalPreview.src = imageUrl;
+                globalPreview.style.display = 'block';
+            }
+        });
 
-    // Modal dışına tıklandığında modalı kapat
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        // Ayrılınca
+        item.addEventListener('mouseleave', () => {
+            globalPreview.style.display = 'none';
+        });
+
+        // Tıklayınca (Büyütmek için)
+        item.addEventListener('click', () => {
+            if (imageModal && modalImg) {
+                imageModal.style.display = "block";
+                modalImg.src = imageUrl;
+            }
+        });
+    });
+}
+
+function setupProfileAvatar() {
+    const profileImg = document.getElementById("profile-avatar");
+    const imageModal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("img01");
+
+    if (profileImg) {
+        profileImg.onclick = function() {
+            imageModal.style.display = "block";
+            modalImg.src = this.src;
         }
     }
 }
+
+// ========== GENEL KAPATMA MANTIĞI ==========
+window.onclick = function(event) {
+    const projectModal = document.getElementById("project-modal");
+    const imageModal = document.getElementById("image-modal");
+    const closeBtn = document.querySelector(".close-btn");
+
+    if (event.target == projectModal) {
+        closeModal();
+    }
+    if (event.target == imageModal) {
+        imageModal.style.display = "none";
+    }
+}
+
+// Kapatma çarpı butonları için (Profil/Sertifika Modalı)
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('close-btn')) {
+        const imageModal = document.getElementById("image-modal");
+        if(imageModal) imageModal.style.display = "none";
+    }
+});
+
+
+setTimeout(() => {
+    const title = document.getElementById('animated-title');
+    const subtitle = document.getElementById('animated-subtitle');
+    
+    if(title) {
+        title.style.opacity = '1';
+        title.style.transform = 'scale(1) translateY(0)';
+    }
+    if(subtitle) {
+        subtitle.style.opacity = '1';
+        subtitle.style.letterSpacing = '2px'; // Harfler birbirine yaklaşarak yerine oturur
+    }
+}, 400);

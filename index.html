@@ -10,12 +10,10 @@
 <body>
 
     <nav class="navbar">
-        <nav class="navbar">
         <div class="logo">
             <img src="yarencvphoto.jpeg" alt="Yaren Yesiltepe" id="profile-avatar">
-            Yaren Yesiltepe
+            <span>Yaren Yesiltepe</span>
         </div>
-        </nav>
         <ul class="menu">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -28,21 +26,20 @@
     </nav>
 
     <header class="hero">
-        
         <video autoplay muted loop id="hero-video">
             <source src="120172-720504774_small.mp4" type="video/mp4"> 
             Tarayıcınız video etiketini desteklemiyor.
         </video>
-
-        <div class="hero-content">
-            <h1 id="animated-title">Hello, I’m <span>Yaren Yesiltepe</span></h1>
-            <p id="animated-subtitle">Software Engineering Student • Problem Solver • Developer</p>
-        </div>
+<div class="hero-content">
+    <div class="hero-text-main">
+        <h1 id="animated-title">Hello, I’m <span>Yaren Yesiltepe</span></h1>
+        <div class="hero-divider"></div> <p id="animated-subtitle">Software Engineering Student • Problem Solver • Developer</p>
+    </div>
+</div>
     </header>
 
     <section id="about" class="section">
         <h2>About Me</h2>
-        
         <div class="about-content">
             <div class="about-text">
                 <p>
@@ -51,17 +48,15 @@
                     I am open to innovation, adept at teamwork, and dedicated to self-improvement.
                     My goal is to strengthen my technical competencies and build a solid career foundation.
                 </p>
-
                 <div class="education-info">
                     <h3>Education</h3>
                     <ul>
                         <li>
-                            Istanul Nisantasi University – Software Engineeering (%100 English) , Senior
+                            Istanbul Nisantasi University – Software Engineering (%100 English), Senior
                             <br>
                             2022-2026
                         </li>
                     </ul>
-                </div>
                 </div>
             </div>
         </div>
@@ -82,17 +77,7 @@
 
     <section id="projects" class="section">
         <h2>My Projects</h2>
-        <div id="project-list" class="project-grid">
-            </div>
-
-        <div class="project-add">
-            <h3>Add a New Project</h3>
-            <input id="project-title" type="text" placeholder="Project Name">
-            <input id="project-image-url" type="text" placeholder="Image URL (e.g., from Imgur or GitHub)">
-            <input id="project-link" type="text" placeholder="GitHub Link">
-            <button onclick="addProject()">Add Project</button>
-        </div>
-    </section>
+        <div id="project-list" class="project-grid"></div>
     
     <section id="internships" class="section">
         <h2>Internship Experiences</h2>
@@ -115,15 +100,51 @@
 
     <section id="certificates" class="section">
         <h2>Certificates</h2>
-        <ul class="list">
-            <li>Certificate of Internship (Fundamentals Program) – Nobel Navigators</li>
-            <li>Womentum Enerjisa – Enerjisa </li>
-            <li>Veri Bilimi İçin İstatistik – BTK Akademi</li>
-            <li>Artificial Intelligence (AI) for Social Impact – ADBInstitute</li>
-            <li>Data Science and Analytics – HpLife</li>
-            <li>Python ile Veriyi Keşfet, Analiz Et , Karar Ver – Başakşehir Belediyesi</li>
-            <li>Commonwealth bank - Introduction to data science Job Simulation – Forage</li>
-            <li>Active Youth in Society Project – ErasmusPlus</li>
+        <ul class="list" id="certificate-list">
+            <li class="certificate-item" data-image="certificates/nobel sertifika.png">
+                Certificate of Internship (Fundamentals Program) – Nobel Navigators
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="certificates/womentum sertifika.png">
+                Womentum Enerjisa – Enerjisa 
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="certificates/veri bilimi sertifika.png">
+                Veri Bilimi İçin İstatistik – BTK Akademi
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="URL_4_AI_SOCIAL_IMPACT">
+                Artificial Intelligence (AI) for Social Impact – ADBInstitute
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="certificates/hplife data science sertifika.png">
+                Data Science and Analytics – HpLife
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="URL_6_PYTHON_BASAKSEHIR">
+                Python ile Veriyi Keşfet, Analiz Et , Karar Ver – Başakşehir Belediyesi
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="certificates/commonwealth.png">
+                Commonwealth bank - Introduction to data science Job Simulation – Forage
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="certificates/erasmus.jpeg">
+                Active Youth in Society Project – ErasmusPlus
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="certificates/certificatepresentingData.png">
+                Presenting Data – HpLife 
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="certificates/certificateJavaScriptBasis.png">
+                JavaScript Basis – Workintech 
+                <span class="certificate-preview"></span>
+            </li>
+            <li class="certificate-item" data-image="certificates/WeStudioCertificate.png">
+                We Work Experience Studio – Türkiye Finans 
+                <span class="certificate-preview"></span>
+            </li>
         </ul>
     </section>
 
@@ -134,19 +155,33 @@
         <p>LinkedIn: <a href="https://www.linkedin.com/in/yaren-yesiltepe-0599b9286" target="_blank">www.linkedin.com/in/yaren-yesiltepe-0599b9286</a></p>
     </section>
 
+    <footer>
+        © 2025 All Rights Reserved — Yaren Yesiltepe
+    </footer>
+
     <div id="image-modal" class="modal">
         <span class="close-btn">&times;</span>
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
-
-    <footer>
-        © 2025 All Rights Reserved — Yaren Yesiltepe
-    </footer>
+    <div id="project-modal" class="modal">
+        <div class="modal-content-wrapper">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div class="slider-container">
+                <img id="modal-img" src="" alt="Project Image">
+                <div id="modal-controls">
+                    <button id="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+                    <button id="next-btn" onclick="changeSlide(1)">&#10095;</button>
+                </div>
+            </div>
+            <div class="modal-text">
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+                <a id="modal-link" href="#" target="_blank" class="btn">View on GitHub</a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

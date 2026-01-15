@@ -29,7 +29,7 @@ let projects = [
         link: "https://github.com/yaren-yesiltepe/smart-finance-tracker.git",
         description: "A web app to track income and expenses with charts and monthly prediction.",
         imageUrls: ["projects/smart-finance-tracker1.png"]
-    },
+    }
 ];
 
 // ========== DOM YÜKLENDİĞİNDE ÇALIŞACAKLAR ==========

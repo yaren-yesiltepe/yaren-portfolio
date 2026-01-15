@@ -23,7 +23,13 @@ let projects = [
             "projects/ai-career-advisor1.png",
             "projects/ai-career-advisor2.png"
         ]
-    }
+    },
+        {
+        title: "Smart Finance Tracker",
+        link: "https://github.com/yaren-yesiltepe/smart-finance-tracker.git",
+        description: "A web app to track income and expenses with charts and monthly prediction.",
+        imageUrls: ["projects/smart-finance-tracker1.png"]
+    },
 ];
 
 // ========== DOM YÜKLENDİĞİNDE ÇALIŞACAKLAR ==========
